@@ -26,5 +26,9 @@ test {
         suites './testng.xml'
         println "done test"
     }
+    
+    testLogging {
+        events "PASSED", "STARTED", "FAILED", "SKIPPED"
+    }
   
 }
