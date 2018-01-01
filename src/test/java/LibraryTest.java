@@ -17,27 +17,30 @@ public class LibraryTest {
     public void setUp() {
    		// In case your user is assigned to a single project leave projectName as empty string, otherwise please specify the project name
         gridClient = new GridClient("eyal.kopelevich", "Experitest2012", "Default", "https://sales.experitest.com:443");
-        client = gridClient.lockDeviceForExecution("Jenkins Android", "@os='android'", 120, TimeUnit.MINUTES.toMillis(2));
+        client = gridClient.lockDeviceForExecution("Jenkins Android", "@os='ios'", 120, TimeUnit.MINUTES.toMillis(2));
         client.setReporter("xml", "reports" , "EriBank");
     }
 
     @Test
     public void testUntitled() {
-    	client.install("cloud:com.experitest.ExperiBank/.LoginActivity", true, false);
+    	client.install("cloud:com.experitest.ExperiBank", true, false);
 		client.deviceAction("Unlock");
-        client.launch("cloud:com.experitest.ExperiBank/.LoginActivity", true, false);
-        client.elementSendText("NATIVE", "id=usernameTextField", 0, "company");
-        client.elementSendText("NATIVE", "id=passwordTextField", 0, "company");
-        client.click("N/ATIVE", "id=loginButton", 0, 1);
-        
-        client.sleep(6000);
-        client.click("NATIVE", "id=makePaymentButton", 0, 1);
-        client.elementSendText("NATIVE", "id=phoneTextField", 0, "5552424");
-        client.elementSendText("NATIVE", "id=nameTextField", 0, "Eyal");
-        client.elementSendText("NATIVE", "id=amountTextField", 0, "30");
-        client.elementSendText("NATIVE", "id=countryTextField", 0, "Russia");
-        client.click("NATIVE", "id=sendPaymentButton", 0, 1);
-        client.click("NATIVE", "id=button1", 0, 1);
+		client.launch("cloud:com.experitest.ExperiBank", true, true);
+		client.elementSendText("NATIVE", "accessibilityLabel=Username", 0, "company");
+		client.elementSendText("NATIVE", "accessibilityLabel=Password", 0, "company");
+		client.click("NATIVE", "accessibilityLabel=Login", 0, 1);
+		client.sleep(6000);
+		client.click("NATIVE", "accessibilityLabel=Make Payment", 0, 1);
+		client.elementSendText("NATIVE", "accessibilityLabel=Phone", 0, "5552424");
+		client.elementSendText("NATIVE", "accessibilityLabel=Name", 0, "Eyal");
+		client.elementSendText("NATIVE", "accessibilityLabel=Amount", 0, "25");
+		client.elementSendText("NATIVE", "xpath=//*[@accessibilityLabel='Country']", 0, "United Kingdom");
+//		client.click("NATIVE", "accessibilityLabel=Select", 0, 1);
+//		if(client.swipeWhileNotFound("Down", 100, 2000, "NATIVE", "xpath=//*[@accessibilityLabel='United Kingdom']", 0, 1000, 5, true)){
+//			client.click("NATIVE", "xpath=//*[@accessibilityLabel='United Kingdom']", 0, 1);
+//		}
+		client.click("NATIVE", "accessibilityLabel=Send Payment", 0, 1);
+		client.click("NATIVE", "accessibilityLabel=Yes", 0, 1);
     }
 
     @AfterMethod
