@@ -22,7 +22,9 @@ dependencies {
 
 test {
     useTestNG() {
+        println "test"
         suites './testng.xml'
+        println "done test"
     }
   
 }
