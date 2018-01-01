@@ -6,6 +6,16 @@
       <class name="LibraryTest"/>  
     </classes>
   </test>
+  <test name="Test2">
+    <classes>
+      <class name="LibraryTest"/>  
+    </classes>
+  </test>
+  <test name="Test3">
+    <classes>
+      <class name="LibraryTest"/>  
+    </classes>
+  </test>
  
    <!-- Test -->
 </suite> <!-- Suite -->
