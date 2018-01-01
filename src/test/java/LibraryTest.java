@@ -17,7 +17,7 @@ public class LibraryTest {
     public void setUp() {
    		// In case your user is assigned to a single project leave projectName as empty string, otherwise please specify the project name
         gridClient = new GridClient("eyal.kopelevich", "Experitest2012", "Default", "https://sales.experitest.com:443");
-        client = gridClient.lockDeviceForExecution("Jenkins Android", "@os='ios'", 120, TimeUnit.MINUTES.toMillis(2));
+        client = gridClient.lockDeviceForExecution("Jenkins iOS", "@os='ios' and @version!='11.1.2'", 120, TimeUnit.MINUTES.toMillis(2));
         client.setReporter("xml", "reports" , "EriBank");
     }
 
