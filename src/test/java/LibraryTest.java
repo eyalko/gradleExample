@@ -1,22 +1,27 @@
 
 import com.experitest.client.*;
-import com.experitest.client.log.ILogger;
 
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import java.util.concurrent.TimeUnit;
-import java.util.logging.Level;
 
 public class LibraryTest {
 
     protected Client client = null;
     protected GridClient gridClient = null;
-
+    public String accessKey, url;
+    
+    
+    public void getEnvFromJenikns() {
+    	accessKey = System.getenv("accessKey");
+    	url = System.getenv("url");
+    }
+    
     @BeforeMethod
     public void setUp() {
-   		// In case your user is assigned to a single project leave projectName as empty string, otherwise please specify the project name
-        gridClient = new GridClient("eyal.kopelevich", "Experitest2012", "Default", "https://sales.experitest.com:443");
+    	getEnvFromJenikns();
+    	gridClient = new GridClient(accessKey, url);
         client = gridClient.lockDeviceForExecution("Jenkins iOS", "@os='ios' and @version!='11.1.2'", 120, TimeUnit.MINUTES.toMillis(2));
         client.setReporter("xml", "reports" , "EriBank");
     }
