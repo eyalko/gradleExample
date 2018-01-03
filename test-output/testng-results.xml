@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="1" passed="1">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="126772" started-at="2018-01-01T13:34:36Z" finished-at="2018-01-01T13:36:43Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="126772" started-at="2018-01-01T13:34:36Z" finished-at="2018-01-01T13:36:43Z">
+      <class name="LibraryTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:LibraryTest@62ee68d8]" name="setUp" is-config="true" duration-ms="11146" started-at="2018-01-01T15:34:36Z" finished-at="2018-01-01T15:34:47Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="testUntitled()[pri:0, instance:LibraryTest@62ee68d8]" name="testUntitled" duration-ms="111393" started-at="2018-01-01T15:34:47Z" finished-at="2018-01-01T15:36:39Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- testUntitled -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:LibraryTest@62ee68d8]" name="tearDown" is-config="true" duration-ms="4197" started-at="2018-01-01T15:36:39Z" finished-at="2018-01-01T15:36:43Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- LibraryTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>
