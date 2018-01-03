@@ -21,7 +21,7 @@ public class LibraryTest {
     @BeforeMethod
     public void setUp() {
     	getEnvFromJenikns();
-    	gridClient = new GridClient(accessKey, url);
+    	gridClient = new GridClient("eyJ4cC51Ijo4OCwieHAucCI6MiwieHAubSI6Ik1BIiwiYWxnIjoiSFMyNTYifQ.eyJleHAiOjE4MzAzNDUxMjUsImlzcyI6ImNvbS5leHBlcml0ZXN0In0.0fpTTFM2cwhqoHKe__J47aTqp9qU6KgBI6-3ZT_WAcg", "https://sales.experitest.com");
         client = gridClient.lockDeviceForExecution("Jenkins iOS", "@os='ios' and @version!='11.1.2'", 120, TimeUnit.MINUTES.toMillis(2));
         client.setReporter("xml", "reports" , "EriBank");
     }
